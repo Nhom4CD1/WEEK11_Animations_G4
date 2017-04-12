@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Animations
 //
-//  Created by Brian Advent on 07/10/2016.
-//  Copyright © 2016 Brian Advent. All rights reserved.
+//  Created by Brian Advent on 2017
+//  Copyleft© 2017 Brian Advent. All rights reserved.
 //
 
 import UIKit
@@ -11,16 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var button1Constraint: NSLayoutConstraint!
-
     @IBOutlet weak var button2Constraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         button1Constraint.constant -= view.bounds.width
         button2Constraint.constant -= view.bounds.width
-    
     }
+  
     var animationPerformedOnce = false
-    override func viewDidDisappear(_ animated: Bool) {
+    
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if !animationPerformedOnce {
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
                 self.button2Constraint.constant += self.view.bounds.width
                 self.view.layoutIfNeeded()
             }, completion: nil)
+            
             animationPerformedOnce = true
         }
     }
